@@ -8,11 +8,15 @@ import { IModel, TodoItem } from "./model"
 })
 export class AppComponent {
   model = new IModel()
+  isDisplay = false
 
   getName(){
     return this.model.user
   }
   getItems(){
+    if(this.isDisplay){
+      return this.model.items
+    }
     return this.model.items.filter(fltr => !fltr.action)
   }
   addItem(value){

@@ -8,6 +8,10 @@
           <button class="btn btn-outline-primary btn-sm m-1" (click)="addItem(todoText.value); todoText.value = '';">Add</button>
         </div>
       </div>
+      <div class="custom-control custom-checkbox d-flex align-items-center">
+        <input type="checkbox" [(ngModel)]="isDisplay" class="custom-control-input my-3" name="" id="displayAll">
+        <label for="displayAll" class="custom-control-label mx-2">Display All</label>
+      </div>
       <table class="table table-striped">
         <thead>
           <tr>
