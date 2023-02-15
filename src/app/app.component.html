@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-5">
-      <h3 class="p-3">[{{user}}] To Do List</h3>
+      <h3 class="p-3">[{{getName()}}] To Do List</h3>
       <div class="input-group">
         <input type="text" class="form-control rounded" />
         <div class="input-group-append">
@@ -11,14 +11,19 @@
       <table class="table table-striped">
         <thead>
           <tr>
+            <th>#</th>
             <th>Description</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of items">
+          <tr *ngFor="let item of getItems() let i = index">
+            <td>{{i + 1}}</td>
             <td>{{item.description}}</td>
-            <td>{{item.action}}</td>
+            <td [ngSwitch]="item.action">
+                <span *ngSwitchCase="true">Yes</span>
+                <span *ngSwitchCase="false">No</span>
+            </td>
           </tr>
         </tbody>
       </table>
