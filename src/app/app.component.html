@@ -3,9 +3,9 @@
     <div class="col-5">
       <h3 class="p-3">[{{getName()}}] To Do List</h3>
       <div class="input-group">
-        <input type="text" class="form-control rounded" />
+        <input type="text" #todoText class="form-control rounded" />
         <div class="input-group-append">
-          <button class="btn btn-outline-primary btn-sm m-1">Add</button>
+          <button class="btn btn-outline-primary btn-sm m-1" (click)="addItem(todoText.value); todoText.value = '';">Add</button>
         </div>
       </div>
       <table class="table table-striped">

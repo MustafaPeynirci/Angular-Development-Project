@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IModel } from "./model"
+import { IModel, TodoItem } from "./model"
 
 @Component({
   selector: 'app-root',
@@ -14,5 +14,10 @@ export class AppComponent {
   }
   getItems(){
     return this.model.items.filter(fltr => !fltr.action)
+  }
+  addItem(value){
+    if(value!=""){
+      this.model.items.push(new TodoItem(value, false))
+    }
   }
 }
