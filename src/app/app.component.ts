@@ -13,6 +13,6 @@ export class AppComponent {
     return this.model.user
   }
   getItems(){
-    return this.model.items
+    return this.model.items.filter(fltr => !fltr.action)
   }
 }
