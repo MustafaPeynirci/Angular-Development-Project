@@ -1,17 +1,4 @@
-<div class="card" *ngIf="selectedMovie">
-  <div class="card-body">
-    <span>
-      id: {{selectedMovie.id}} name: {{selectedMovie.name}}
-    </span>
-    <div class="input-group">
-      <input type="text" [(ngModel)]="selectedMovie.name" class="form-control">
-      <div class="input-group-append">
-        <button type="button" class="btn btn-outline-secondary" (click)="update()">Update</button>
-      </div>
-    </div>
-  </div>
-</div>
-
+<app-movie-detail [movie]="selectedMovie"></app-movie-detail>
 <div class="card">
   <div class="card-header">
     {{ title }}

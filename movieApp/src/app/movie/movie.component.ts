@@ -21,7 +21,5 @@ export class MovieComponent implements OnInit {
   onSelect(movie:IMovie):void{
     this.selectedMovie = movie
   }
-  update(){
-  }
 
 }
