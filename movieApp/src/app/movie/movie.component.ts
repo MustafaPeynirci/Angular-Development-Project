@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Movies } from '../movie.datasource';
 import { IMovie } from '../movieModel';
+import { MovieService } from '../movie-service/movie.service';
 
 @Component({
   selector: 'app-movie',
@@ -10,16 +10,20 @@ import { IMovie } from '../movieModel';
 export class MovieComponent implements OnInit {
 
   title = "Movie List"
-  movies = Movies
+  movies: IMovie[]
   selectedMovie: IMovie
 
-  constructor() { }
+  constructor(private movieService:MovieService) { }
 
   ngOnInit(): void {
+    this.getMovies()
   }
 
   onSelect(movie:IMovie):void{
     this.selectedMovie = movie
+  }
+  getMovies():void{
+    this.movies = this.movieService.getMovies()
   }
 
 }
