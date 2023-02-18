@@ -23,7 +23,9 @@ export class MovieComponent implements OnInit {
     this.selectedMovie = movie
   }
   getMovies():void{
-    this.movies = this.movieService.getMovies()
+    this.movieService.getMovies().subscribe(response => {
+      this.movies = response
+    })
   }
 
 }
