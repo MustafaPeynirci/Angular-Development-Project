@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { MovieComponent } from './movie/movie.component';
 import { LoggingComponent } from './logging/logging/logging.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieComponent,
     MovieDetailComponent,
-    LoggingComponent
+    LoggingComponent,
+    NavbarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
