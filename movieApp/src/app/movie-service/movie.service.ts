@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoggingService } from './../logging-service/logging.service';
 import { IMovie } from './../movieModel';
 import { Injectable } from '@angular/core';
@@ -24,6 +24,12 @@ export class MovieService {
   getMovie(id):Observable<IMovie>{
     this.loggingService.add("MovieService: get detail by id = " + id)
     return this.http.get<IMovie>(this.apiMoviesUrl + "/" + id)
+  }
+  update(movie:IMovie):Observable<any>{
+    // const httpOptions = {
+    //   hearders: new HttpHeaders({"Content-Type":"applicaiton/json"})
+    // }
+    return this.http.put(this.apiMoviesUrl, movie)
   }
 
 }
