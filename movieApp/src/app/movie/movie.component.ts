@@ -19,12 +19,17 @@ export class MovieComponent implements OnInit {
     this.getMovies()
   }
 
-  onSelect(movie:IMovie):void{
+  onSelect(movie:IMovie): void {
     this.selectedMovie = movie
   }
-  getMovies():void{
+  getMovies(): void {
     this.movieService.getMovies().subscribe(response => {
       this.movies = response
+    })
+  }
+  add(name:string, imageUrl:string, description:string): void {
+    this.movieService.add({name, imageUrl, description} as IMovie).subscribe(response => {
+      this.movies.push(response)
     })
   }
 
