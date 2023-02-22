@@ -9,4 +9,10 @@ export class ProductRepository {
         this.products = new Array<Product>()
         this.dataSource.getProducts().forEach(x => this.products.push(x))
     }
+    getProducts(): Product[] {
+        return this.products
+    }
+    getProductsById(id: number): Product {
+        return this.products.find(x => x.id == id)
+    }
 }
