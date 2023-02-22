@@ -11,6 +11,12 @@ export class ProductComponent implements OnInit {
   model: ProductRepository = new ProductRepository()
   product: Product = this.model.getProductById(1)
 
+  today: number = Date.now()
+  title: string = "Angular Course"
+  student: number = 525217
+  price: number = 395.9916
+  completed: number = 0.26
+
   constructor() { }
 
   ngOnInit(): void {

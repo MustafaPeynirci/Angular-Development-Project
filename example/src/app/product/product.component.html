@@ -16,3 +16,32 @@
     <label for="onKeyUp4">onKeyUp 4</label>
     <input type="text" #email class="form-control" (keyup.enter)="onKeyUp4(email.value)">
 </div>
+<div class="container">
+    <h4>Lower-Upper-Title CasePipe</h4>
+    <p>{{title}}</p>
+    <p>{{title | lowercase}}</p>
+    <p>{{title | uppercase}}</p>
+    <p>{{title | titlecase}}</p>
+    <hr>
+    <h4>Date Pipe</h4>
+    <p>{{today}}</p>
+    <p>{{today | date}}</p>
+    <p>{{today | date:'fullDate'}}</p>
+    <p>{{today | date:'medium'}}</p>
+    <p>{{today | date:'shortTime'}}</p>
+    <p>{{today | date:'h:mm:ss'}}</p>
+    <hr>
+    <h4>Decimal Pipe</h4>
+    <p>{{student}}</p>
+    <p>{{student | number}}</p>
+    <p>{{price | number:'1.2-2'}}</p>
+    <hr>
+    <h4>Currency Pipe</h4>
+    <p>{{price | currency}}</p>
+    <p>{{price | currency:'EUR'}}</p>
+    <p>{{price | currency:'XX'}}</p>
+    <hr>
+    <h4>Percent Pipe</h4>
+    <p>{{completed | percent}}</p>
+    <p>{{completed | percent:'2.2-2'}}</p>
+</div>
