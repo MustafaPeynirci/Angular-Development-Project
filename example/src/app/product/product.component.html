@@ -1,7 +1,18 @@
 <div class="bg-primary text-white m-2 p-2">
     There are {{ model.getProducts().length}} products in the repository.
 </div>
-<h1>{{product.name}}</h1>
+<!-- <h1>{{product.name}}</h1>
 <h1 [textContent]="product.name"></h1>
 <img [src]="'assets/img/' + product.imageUrl" alt="">
-<img src="assets/img/{{product.imageUrl}}" alt="">
+<img src="assets/img/{{product.imageUrl}}" alt=""> -->
+
+<div class="m-2 p-2 col-4">
+    <label for="onKeyUp1">onKeyUp 1</label>
+    <input type="text" id="onKeyUp1" class="form-control" (keyup)="onKeyUp($event)">
+    <label for="onKeyUp2">onKeyUp 2</label>
+    <input type="text" id="onKeyUp2" class="form-control" (keyup.enter)="onKeyUp2()">
+    <label for="onKeyUp3">onKeyUp 3</label>
+    <input type="text" id="onKeyUp3" class="form-control" (keyup.enter)="onKeyUp3($event)">
+    <label for="onKeyUp4">onKeyUp 4</label>
+    <input type="text" #email class="form-control" (keyup.enter)="onKeyUp4(email.value)">
+</div>
