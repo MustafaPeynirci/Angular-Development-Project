@@ -1,3 +1,4 @@
+import { Product } from './../product.model';
 import { ProductRepository } from './../repository.model';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
   model: ProductRepository = new ProductRepository()
+  product: Product = this.model.getProductById(1)
 
   constructor() { }
 
