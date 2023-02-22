@@ -34,5 +34,8 @@ export class MovieService {
   add(movie:IMovie):Observable<IMovie>{
     return this.http.post<IMovie>(this.apiMoviesUrl, movie)
   }
+  delete(movie:IMovie):Observable<IMovie>{
+    return this.http.delete<IMovie>(this.apiMoviesUrl + "/" + movie.id)
+  }
 
 }

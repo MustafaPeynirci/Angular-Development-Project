@@ -2,13 +2,15 @@
   <div class="card-header">
     {{ title }}
   </div>
-  <ul class="list-group list-group-flush">
-    <li *ngFor="let movie of movies" routerLink="/detail/{{movie.id}}" 
-      class="list-group-item d-flex justify-content-between">
-      <span>{{ movie.id }} {{ movie.name }}</span> 
-      <span class="close">x</span>
+  <ol class="list-group list-group">
+    <li *ngFor="let movie of movies" routerLink="/detail/{{movie.id}}" class="list-group-item d-flex justify-content-between align-items-center">
+       <span class="badge bg-primary rounded-pill">{{movie.id}}</span>
+       <div class="ms-2 me-auto">
+        <div class="fw">{{movie.name}}</div>
+      </div>
+      <span (click)="delete(movie)" class="close">x</span>
     </li>
-  </ul>
+  </ol>
 </div>
 <div class="card my-2">
   <div class="card-header">

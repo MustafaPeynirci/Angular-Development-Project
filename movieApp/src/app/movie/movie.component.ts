@@ -32,5 +32,9 @@ export class MovieComponent implements OnInit {
       this.movies.push(response)
     })
   }
+  delete(movie:IMovie): void {
+    this.movies = this.movies.filter(fltr => fltr !== movie)
+    this.movieService.delete(movie).subscribe()
+  }
 
 }
