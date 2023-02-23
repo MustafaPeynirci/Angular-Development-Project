@@ -17,6 +17,8 @@ export class ProductComponent implements OnInit {
   price: number = 395.9916
   completed: number = 0.26
 
+  text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+
   constructor() { }
 
   ngOnInit(): void {
