@@ -1,6 +1,17 @@
-<div class="bg-primary text-white m-2 p-2">
-    There are {{ model.getProducts().length}} products in the repository.
+<div *ngIf="model.getProducts().length > 0; then productList else noProducts">
 </div>
+
+<ng-template #productList>
+    <div class="bg-primary text-white m-2 p-2">
+        There are {{ model.getProducts().length}} products in the repository.
+    </div>
+</ng-template>
+<ng-template #noProducts>
+    <div class="bg-primary text-white m-2 p-2">
+        There are no products in the repository.
+    </div>
+</ng-template>
+
 <!-- <h1>{{product.name}}</h1>
 <h1 [textContent]="product.name"></h1>
 <img [src]="'assets/img/' + product.imageUrl" alt="">
