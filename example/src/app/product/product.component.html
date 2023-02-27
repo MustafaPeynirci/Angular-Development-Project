@@ -77,3 +77,15 @@
     <span *ngSwitchCase="'iPhone X'">iPhone X</span>
     <span *ngSwitchDefault>Other Product</span>
 </div>
+<hr>
+
+<ul class="list-group m-5">
+    <li class="list-group-item"
+        *ngFor="let product of model.getProducts(); index as i; first as isFirst; last as isLast; odd as isOdd; even as isEven;">
+        {{ i+1 }} - {{product.name}}
+        <span *ngIf="isFirst"> - First Item</span>
+        <span *ngIf="isLast"> - Last Item</span>
+        <span *ngIf="isOdd"> - Odd Item</span>
+        <span *ngIf="isEven"> - Even Item</span>
+    </li>
+</ul>
