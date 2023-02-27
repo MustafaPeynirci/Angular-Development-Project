@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProductComponent implements OnInit {
   model: ProductRepository = new ProductRepository()
   product: Product = this.model.getProductById(1)
+  productName: string = this.model.getProductById(1).name
 
   today: number = Date.now()
   title: string = "Angular Course"

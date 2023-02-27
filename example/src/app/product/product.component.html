@@ -70,3 +70,10 @@
     <span *ngSwitchCase="2">There are 2 products</span>
     <span *ngSwitchDefault>There are many products</span>
 </div>
+<hr>
+<div class="bg-info m-2 p-2" [ngSwitch]="model.getProductById(1).name">
+    <span *ngSwitchCase="productName">iPhone 7 Plus</span>
+    <span *ngSwitchCase="'iPhone 8 Plus'">iPhone 8 Plus</span>
+    <span *ngSwitchCase="'iPhone X'">iPhone X</span>
+    <span *ngSwitchDefault>Other Product</span>
+</div>
