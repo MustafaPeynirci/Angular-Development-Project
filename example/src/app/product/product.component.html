@@ -64,9 +64,9 @@
     <p>{{text | summary:13 }}</p>
 </div>
 
-<div class="bg-info m-2 p-2">
-    <span>There are no products</span>
-    <span>There are 1 product</span>
-    <span>There are 2 products</span>
-    <span>There are many products</span>
+<div class="bg-info m-2 p-2" [ngSwitch]="model.getProductCount()">
+    <span *ngSwitchCase="0">There are no products</span>
+    <span *ngSwitchCase="1">There are 1 product</span>
+    <span *ngSwitchCase="2">There are 2 products</span>
+    <span *ngSwitchDefault>There are many products</span>
 </div>
