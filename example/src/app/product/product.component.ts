@@ -39,5 +39,14 @@ export class ProductComponent implements OnInit {
   onKeyUp4(x) {
     console.log(x);
   }
+  addProduct() {
+    this.model.addProduct(new Product(7, "iPhone 14", "Nice telephone", "i7.png", 9390))
+  }
+  deleteProduct(product: Product) {
+    this.model.deleteProduct(product)
+  }
+  updateProduct(product: Product) {
+    product.name = "Updated!"
+  }
 
 }

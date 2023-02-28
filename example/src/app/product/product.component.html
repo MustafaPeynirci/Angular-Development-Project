@@ -89,3 +89,15 @@
         <span *ngIf="isEven"> - Even Item</span>
     </li>
 </ul>
+<hr>
+
+<div class="m-5">
+    <button class="btn btn-primary" (click)="addProduct()">Add Product</button>
+    <ul class="list-group mt-2">
+        <li class="list-group-item" *ngFor="let product of model.getProducts()">
+            {{product.name}}
+            <button class="btn btn-danger btn-sm" (click)="deleteProduct(product)">Delete</button>
+            <button class="btn btn-warning btn-sm" (click)="updateProduct(product)">Update</button>
+        </li>
+    </ul>
+</div>
