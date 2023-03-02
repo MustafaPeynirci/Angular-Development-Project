@@ -10,6 +10,7 @@ export class AdminProductsComponent implements OnInit {
 
   products
   model: ProductRepository
+  selectedProduct
 
   constructor() {
     this.model = new ProductRepository()

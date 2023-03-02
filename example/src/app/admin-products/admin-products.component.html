@@ -1,4 +1,7 @@
 <div class="container m-5">
+    <div class="bg-primary text-white p-2">
+        Selected Product: {{selectedProduct || '(None)' }}
+    </div>
     <table class="table">
         <thead>
             <th>ID</th>
@@ -8,7 +11,8 @@
             <th>Manage</th>
         </thead>
         <tbody>
-            <tr *ngFor="let product of products">
+            <tr *ngFor="let product of products" (mouseover)="selectedProduct=product.name"
+                (mouseleave)="selectedProduct='(None)'">
                 <td>{{product.id}}</td>
                 <td>
                     <img src="/assets/img/{{product.imageUrl}}" width="50" height="60">
