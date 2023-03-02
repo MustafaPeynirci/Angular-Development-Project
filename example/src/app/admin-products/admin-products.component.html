@@ -1,0 +1,25 @@
+<div class="container m-5">
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Manage</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.id}}</td>
+                <td>
+                    <img src="/assets/img/{{product.imageUrl}}" width="50" height="60">
+                </td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-danger m-1">Delete</button>
+                    <button class="btn btn-sm btn-outline-primary m-1">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
