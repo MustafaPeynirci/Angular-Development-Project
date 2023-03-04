@@ -11,6 +11,7 @@ export class AdminProductsComponent implements OnInit {
 
   products
   model: ProductRepository
+  selectProduct: Product
   selectedProduct
 
   constructor() {
@@ -23,6 +24,12 @@ export class AdminProductsComponent implements OnInit {
 
   getSelected(product: Product): boolean {
     return product.name == this.selectedProduct
+  }
+  getSelect(product: Product): boolean {
+    return product == this.selectProduct
+  }
+  editProduct(product: Product) {
+    this.selectProduct = product
   }
 
 }

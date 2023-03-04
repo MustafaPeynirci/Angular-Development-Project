@@ -13,8 +13,7 @@
                     <th>Manage</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products" (mouseover)="selectedProduct=product.name"
-                        (mouseleave)="selectedProduct='(None)'" [class.bg-info]="getSelected(product)">
+                    <tr *ngFor="let product of products" [class.bg-info]="getSelect(product)">
                         <td>{{product.id}}</td>
                         <td>
                             <img src="/assets/img/{{product.imageUrl}}" width="50" height="60">
@@ -23,7 +22,8 @@
                         <td>{{product.price}}</td>
                         <td>
                             <button class="btn btn-sm btn-outline-danger m-1">Delete</button>
-                            <button class="btn btn-sm btn-outline-primary m-1">Update</button>
+                            <button (click)="editProduct(product)"
+                                class="btn btn-sm btn-outline-primary m-1">Edit</button>
                         </td>
                     </tr>
                 </tbody>
@@ -32,7 +32,24 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Product Name</label>
-                <input (input)="selectedProduct=$any($event.target).value" type="text" class="form-control">
+                <input #pName [value]="selectProduct.name" (keyup.enter)="selectedProduct=pName.value" type="text"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input #pPrice [value]="selectProduct.price" (keyup.enter)="selectedProduct=pName.value" type="text"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Image Url</label>
+                <input #pImageUrl [value]="selectProduct.imageUrl" (keyup.enter)="selectedProduct=pName.value"
+                    type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea #pDescription [value]="selectProduct.description" (keyup.enter)="selectedProduct=pName.value"
+                    type="text" class="form-control">
+                </textarea>
             </div>
         </div>
     </div>
