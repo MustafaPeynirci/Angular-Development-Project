@@ -1,3 +1,4 @@
+import { Product } from './../product.model';
 import { ProductRepository } from './../repository.model';
 import { Component, OnInit } from '@angular/core';
 
@@ -18,6 +19,10 @@ export class AdminProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  getSelected(product: Product): boolean {
+    return product.name == this.selectedProduct
   }
 
 }

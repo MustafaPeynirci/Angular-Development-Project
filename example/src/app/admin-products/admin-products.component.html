@@ -1,29 +1,39 @@
-<div class="container m-5">
-    <div class="bg-primary text-white p-2">
-        Selected Product: {{selectedProduct || '(None)' }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="bg-primary text-white p-2">
+                Selected Product: {{selectedProduct || '(None)' }}
+            </div>
+            <table class="table">
+                <thead>
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Manage</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products" (mouseover)="selectedProduct=product.name"
+                        (mouseleave)="selectedProduct='(None)'" [class.bg-info]="getSelected(product)">
+                        <td>{{product.id}}</td>
+                        <td>
+                            <img src="/assets/img/{{product.imageUrl}}" width="50" height="60">
+                        </td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-danger m-1">Delete</button>
+                            <button class="btn btn-sm btn-outline-primary m-1">Update</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Product Name</label>
+                <input (input)="selectedProduct=$any($event.target).value" type="text" class="form-control">
+            </div>
+        </div>
     </div>
-    <table class="table">
-        <thead>
-            <th>ID</th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Manage</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of products" (mouseover)="selectedProduct=product.name"
-                (mouseleave)="selectedProduct='(None)'">
-                <td>{{product.id}}</td>
-                <td>
-                    <img src="/assets/img/{{product.imageUrl}}" width="50" height="60">
-                </td>
-                <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
-                <td>
-                    <button class="btn btn-sm btn-outline-danger m-1">Delete</button>
-                    <button class="btn btn-sm btn-outline-primary m-1">Update</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
