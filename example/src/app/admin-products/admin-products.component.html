@@ -32,22 +32,22 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Product Name</label>
-                <input #pName [value]="selectProduct.name" (keyup.enter)="selectedProduct=pName.value" type="text"
+                <input #pName [value]="selectProduct?.name" (keyup.enter)="selectedProduct=pName.value" type="text"
                     class="form-control">
             </div>
             <div class="form-group">
                 <label>Price</label>
-                <input #pPrice [value]="selectProduct.price" (keyup.enter)="selectedProduct=pName.value" type="text"
+                <input #pPrice [value]="selectProduct?.price" (keyup.enter)="selectedProduct=pName.value" type="text"
                     class="form-control">
             </div>
             <div class="form-group">
                 <label>Image Url</label>
-                <input #pImageUrl [value]="selectProduct.imageUrl" (keyup.enter)="selectedProduct=pName.value"
+                <input #pImageUrl [value]="selectProduct?.imageUrl" (keyup.enter)="selectedProduct=pName.value"
                     type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label>Description</label>
-                <textarea #pDescription [value]="selectProduct.description" (keyup.enter)="selectedProduct=pName.value"
+                <textarea #pDescription [value]="selectProduct?.description" (keyup.enter)="selectedProduct=pName.value"
                     type="text" class="form-control">
                 </textarea>
             </div>
