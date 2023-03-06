@@ -11,6 +11,7 @@ export class ProductComponent implements OnInit {
   model: ProductRepository = new ProductRepository()
   product: Product = this.model.getProductById(1)
   productName: string = this.model.getProductById(1).name
+  newProduct: Product = new Product()
 
   today: number = Date.now()
   title: string = "Angular Course"
@@ -47,6 +48,13 @@ export class ProductComponent implements OnInit {
   }
   updateProduct(product: Product) {
     product.name = "Updated!"
+  }
+
+  get jsonProduct() {
+    return JSON.stringify(this.newProduct)
+  }
+  addJsonProduct(product: Product) {
+    console.log("New Product: " + this.jsonProduct);
   }
 
 }
