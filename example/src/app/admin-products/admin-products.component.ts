@@ -31,5 +31,13 @@ export class AdminProductsComponent implements OnInit {
   editProduct(product: Product) {
     this.selectProduct = product
   }
+  saveChanges() {
+    const p = this.model.getProductById(this.selectProduct.id)
+    p.name = this.selectProduct.name
+    p.price = this.selectProduct.price
+    p.imageUrl = this.selectProduct.imageUrl
+    p.description = this.selectProduct.description
+    this.selectProduct = null
+  }
 
 }

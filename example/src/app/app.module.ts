@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { SummaryPipe } from './summary.pipe';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +15,8 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
     AdminProductsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [ProductComponent]
