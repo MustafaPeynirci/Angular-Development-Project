@@ -121,10 +121,12 @@
                 </div>
                 <div class="form-group">
                     <label>Name</label>
-                    <input required [(ngModel)]="newProduct.name" type="text" name="pName" #name="ngModel"
-                        class="form-control">
+                    <input required minlength="3" maxlength="12" pattern="^[A-Za-z ]+$" [(ngModel)]="newProduct.name"
+                        type="text" name="pName" #name="ngModel" class="form-control">
                     <div class="text-danger" *ngIf="!name.valid && name.touched">
-                        Name is required.
+                        <p *ngIf="name.errors['required']">Name is required.</p>
+                        <p *ngIf="name.errors['pattern']">only letters and spaces.</p>
+                        <p *ngIf="name.errors['minlength']">Minimum 3 character.</p>
                     </div>
                 </div>
                 <div class="form-group">
