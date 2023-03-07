@@ -121,19 +121,35 @@
                 </div>
                 <div class="form-group">
                     <label>Name</label>
-                    <input [(ngModel)]="newProduct.name" type="text" class="form-control">
+                    <input required [(ngModel)]="newProduct.name" type="text" name="pName" #name="ngModel"
+                        class="form-control">
+                    <div class="text-danger" *ngIf="!name.valid && name.touched">
+                        Name is required.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <input [(ngModel)]="newProduct.description" type="text" class="form-control">
+                    <input required [(ngModel)]="newProduct.description" type="text" name="pDescription"
+                        #description="ngModel" class="form-control">
+                    <div class="text-danger" *ngIf="!description.valid && description.touched">
+                        Description is required.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Price</label>
-                    <input [(ngModel)]="newProduct.price" type="text" class="form-control">
+                    <input required [(ngModel)]="newProduct.price" type="text" name="pPrice" #pricee="ngModel"
+                        class="form-control">
+                    <div class="text-danger" *ngIf="!pricee.valid && pricee.touched">
+                        Price is required.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Image Url</label>
-                    <input [(ngModel)]="newProduct.imageUrl" type="text" class="form-control">
+                    <input required [(ngModel)]="newProduct.imageUrl" type="text" name="pImageUrl" #imageUrl="ngModel"
+                        class="form-control">
+                    <div class="text-danger" *ngIf="!imageUrl.valid && imageUrl.touched">
+                        Image Url is required.
+                    </div>
                 </div>
                 <button (click)="addJsonProduct(newProduct)" class="btn btn-primary mt-2">Submit</button>
             </div>
