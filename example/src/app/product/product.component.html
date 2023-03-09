@@ -162,7 +162,10 @@
                             Image Url is required.
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mt-2" [disabled]="formSubmitted && form.invalid"
+                        [class.btn-secondary]="formSubmitted && form.invalid">
+                        Submit
+                    </button>
                 </form>
             </div>
         </div>
