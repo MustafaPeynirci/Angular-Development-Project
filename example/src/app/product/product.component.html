@@ -119,6 +119,11 @@
                 <form #form="ngForm" (ngSubmit)="submitForm(form)">
                     <div class="bg-danger text-white my-2 p-3" *ngIf="formSubmitted && form.invalid">
                         Something went wrong. Check your information.
+                        <ul>
+                            <li *ngFor="let error of getFormValidationErrors(form)">
+                                {{error}}
+                            </li>
+                        </ul>
                     </div>
                     <div class="bg-info text-white m-2 p-2">
                         {{jsonProduct}}

@@ -60,6 +60,8 @@ export class ProductComponent implements OnInit {
     console.log("New Product: " + this.jsonProduct);
   }
   submitForm(form: NgForm) {
+    console.log(form);
+
     this.formSubmitted = true
     if (form.valid) {
       this.addProduct(this.newProduct)
@@ -67,6 +69,14 @@ export class ProductComponent implements OnInit {
       form.reset()
       this.formSubmitted = false
     }
+  }
+  getFormValidationErrors(form: NgForm): string[] {
+    let messages: string[] = []
+    Object.keys(form.controls).forEach(k => {
+      console.log(k); //name
+      console.log(form.controls[k]); //FormControl(name)
+    })
+    return messages
   }
 
 }
