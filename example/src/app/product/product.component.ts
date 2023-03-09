@@ -1,6 +1,7 @@
 import { Product } from './../product.model';
 import { ProductRepository } from './../repository.model';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
@@ -21,6 +22,8 @@ export class ProductComponent implements OnInit {
 
   text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
 
+  formSubmitted: boolean = false
+
   constructor() { }
 
   ngOnInit(): void {
@@ -40,7 +43,7 @@ export class ProductComponent implements OnInit {
   onKeyUp4(x) {
     console.log(x);
   }
-  addProduct() {
+  addProduct(p: Product) {
     this.model.addProduct(new Product(7, "iPhone 14", "Nice telephone", "i7.png", 9390))
   }
   deleteProduct(product: Product) {
@@ -56,8 +59,14 @@ export class ProductComponent implements OnInit {
   addJsonProduct(product: Product) {
     console.log("New Product: " + this.jsonProduct);
   }
-  submitForm(form) {
-    console.log(form);
+  submitForm(form: NgForm) {
+    this.formSubmitted = true
+    if (form.valid) {
+      this.addProduct(this.newProduct)
+      this.newProduct = new Product()
+      form.reset()
+      this.formSubmitted = false
+    }
   }
 
 }

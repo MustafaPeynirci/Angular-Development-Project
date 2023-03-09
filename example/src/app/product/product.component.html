@@ -96,7 +96,7 @@
 
 <ng-template #productsList let-products="products">
     <div class="m-5">
-        <button class="btn btn-primary" (click)="addProduct()">Add Product</button>
+        <button class="btn btn-primary">Add Product</button>
         <ul class="list-group mt-2">
             <li class="list-group-item" *ngFor="let product of products">
                 {{product.name}}
@@ -117,6 +117,9 @@
         <div class="col-8">
             <div class="m-3">
                 <form #form="ngForm" (ngSubmit)="submitForm(form)">
+                    <div class="bg-danger text-white my-2 p-3" *ngIf="formSubmitted && form.invalid">
+                        Something went wrong. Check your information.
+                    </div>
                     <div class="bg-info text-white m-2 p-2">
                         {{jsonProduct}}
                     </div>
@@ -124,7 +127,7 @@
                         <label>Name</label>
                         <input required minlength="3" maxlength="12" pattern="^[A-Za-z ]+$"
                             [(ngModel)]="newProduct.name" type="text" name="pName" #name="ngModel" class="form-control">
-                        <div class="text-danger" *ngIf="!name.valid && name.touched">
+                        <div class="text-danger" *ngIf="(formSubmitted || name.dirty && name.invalid)">
                             <p *ngIf="name.errors['required']">Name is required.</p>
                             <p *ngIf="name.errors['pattern']">only letters and spaces.</p>
                             <p *ngIf="name.errors['minlength']">Minimum 3 character.</p>
