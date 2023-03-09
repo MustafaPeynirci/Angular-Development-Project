@@ -56,5 +56,8 @@ export class ProductComponent implements OnInit {
   addJsonProduct(product: Product) {
     console.log("New Product: " + this.jsonProduct);
   }
+  submitForm(form) {
+    console.log(form);
+  }
 
 }
