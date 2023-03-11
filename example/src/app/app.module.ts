@@ -6,13 +6,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ProductComponent } from './product/product.component';
 import { InputEmailDirective } from './input-email.directive';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
+import { Product2Component } from './product2/product2.component';
 
 @NgModule({
   declarations: [
     ProductComponent,
     SummaryPipe,
     InputEmailDirective,
-    AdminProductsComponent
+    AdminProductsComponent,
+    Product2Component
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,6 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [ProductComponent]
+  bootstrap: [Product2Component]
 })
 export class AppModule { }

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="m-3">
+                <form>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input class="form-control" [formControl]="name">
+                        {{name.value}}
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input class="form-control" [formControl]="description">
+                        {{description.value}}
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input class="form-control" [formControl]="price">
+                        {{price.value}}
+                    </div>
+                    <div class="form-group">
+                        <label>Image Url</label>
+                        <input class="form-control" [formControl]="imageUrl">
+                        {{imageUrl.value}}
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2" (click)="updateName()">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
