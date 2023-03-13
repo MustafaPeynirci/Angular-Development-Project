@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-product2',
@@ -8,18 +8,26 @@ import { FormControl } from '@angular/forms';
 })
 export class Product2Component implements OnInit {
 
-  name = new FormControl("iPhone 7 Plus")
-  description = new FormControl("Nice")
-  price = new FormControl("8350")
-  imageUrl = new FormControl("1.png")
+  productForm = new FormGroup({
+    name: new FormControl("iPhone 7 Plus"),
+    description: new FormControl("Nice"),
+    price: new FormControl("8350"),
+    imageUrl: new FormControl("1.png")
+  })
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  updateName() {
-    this.name.setValue("iPhone 8 Plus")
+  onSubmit() {
+    console.log(this.productForm.value);
+  }
+  updateProduct() {
+    this.productForm.patchValue({
+      name: "iPhone 8 Plus",
+      price: "9400"
+    })
   }
 
 }
