@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ImageValidators } from '../image.validators';
 
 @Component({
   selector: 'app-product2',
@@ -9,10 +10,17 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class Product2Component implements OnInit {
 
   productForm = new FormGroup({
-    name: new FormControl("", [Validators.required, Validators.minLength(5)]),
+    name: new FormControl("", [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(20)
+    ]),
     description: new FormControl("", Validators.required),
     price: new FormControl("", Validators.required),
-    imageUrl: new FormControl("", Validators.required)
+    imageUrl: new FormControl("", [
+      Validators.required,
+      ImageValidators.isValidExtension
+    ])
   })
 
   constructor() { }
@@ -29,9 +37,11 @@ export class Product2Component implements OnInit {
       price: "9400"
     })
   }
-
   get name() {
     return this.productForm.get('name')
+  }
+  get imageUrl() {
+    return this.productForm.get('imageUrl')
   }
 
 }
