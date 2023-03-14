@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product2',
@@ -9,10 +9,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class Product2Component implements OnInit {
 
   productForm = new FormGroup({
-    name: new FormControl("iPhone 7 Plus"),
-    description: new FormControl("Nice"),
-    price: new FormControl("8350"),
-    imageUrl: new FormControl("1.png")
+    name: new FormControl("", [Validators.required, Validators.minLength(5)]),
+    description: new FormControl("", Validators.required),
+    price: new FormControl("", Validators.required),
+    imageUrl: new FormControl("", Validators.required)
   })
 
   constructor() { }
@@ -28,6 +28,10 @@ export class Product2Component implements OnInit {
       name: "iPhone 8 Plus",
       price: "9400"
     })
+  }
+
+  get name() {
+    return this.productForm.get('name')
   }
 
 }
