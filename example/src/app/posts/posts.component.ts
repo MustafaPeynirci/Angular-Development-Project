@@ -24,14 +24,22 @@ export class PostsComponent implements OnInit {
 
   createPost(input: HTMLInputElement) {
     const post = { title: input.value }
-
     this.httpClient.post(this.url, JSON.stringify(post)).subscribe(response => {
       post['id'] = response['id']
       this.posts.splice(0, 0, post)
       console.log(response);
-
     })
-
+  }
+  updatePost(post) {
+    post.title = "updated!"
+    this.httpClient.put(this.url + "/" + post.id, JSON.stringify(post)).subscribe(response => {
+      console.log(response);
+    })
+    // this.httpClient.patch(this.url + "/" + post.id, JSON.stringify({
+    //   title: "updated patch"
+    // })).subscribe(response => {
+    //   console.log(response);
+    // })
   }
 
 }
