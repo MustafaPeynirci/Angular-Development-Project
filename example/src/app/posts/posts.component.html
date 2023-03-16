@@ -1,1 +1,8 @@
-<p>posts works!</p>
+<div class="container">
+    <input type="text" class="form-control mb-2">
+    <ul class="list-group">
+        <li *ngFor="let post of posts" class="list-group-item">
+            {{post.title}}
+        </li>
+    </ul>
+</div>
