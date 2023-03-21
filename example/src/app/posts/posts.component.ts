@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class PostsComponent implements OnInit {
 
   posts: [any]
+  error
 
   constructor(
     private httpClient: HttpClient,
@@ -17,9 +18,14 @@ export class PostsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.postService.getPosts().subscribe(response => {
-      this.posts = <[any]>response
-    })
+    this.postService.getPosts().subscribe(
+      response => {
+        this.posts = <[any]>response
+      },
+      error => {
+        this.error = error
+      }
+    )
   }
 
   createPost(input: HTMLInputElement) {
