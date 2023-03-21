@@ -9,6 +9,11 @@ import { InputEmailDirective } from './input-email.directive';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { Product2Component } from './product2/product2.component';
 import { PostsComponent } from './posts/posts.component';
+import { GeneralComponent } from './general/general.component';
+import { HomeComponent } from './home/home.component';
+import { ProductsComponent } from './products/products.component';
+import { UsersComponent } from './users/users.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +22,12 @@ import { PostsComponent } from './posts/posts.component';
     InputEmailDirective,
     AdminProductsComponent,
     Product2Component,
-    PostsComponent
+    PostsComponent,
+    GeneralComponent,
+    HomeComponent,
+    ProductsComponent,
+    UsersComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +36,6 @@ import { PostsComponent } from './posts/posts.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [PostsComponent]
+  bootstrap: [GeneralComponent]
 })
 export class AppModule { }
