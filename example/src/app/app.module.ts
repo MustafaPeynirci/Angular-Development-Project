@@ -1,3 +1,4 @@
+import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SummaryPipe } from './summary.pipe';
@@ -14,6 +15,15 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { UsersComponent } from './users/users.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+
+const appRoutes: Routes = [
+  { path: "", component: HomeComponent },
+  { path: "home", component: HomeComponent },
+  { path: "products", component: ProductsComponent },
+  { path: "users", component: UsersComponent },
+  { path: "**", component: NotfoundComponent }
+]
 
 @NgModule({
   declarations: [
@@ -27,13 +37,15 @@ import { CategoriesComponent } from './categories/categories.component';
     HomeComponent,
     ProductsComponent,
     UsersComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [GeneralComponent]
