@@ -16,11 +16,13 @@ import { ProductsComponent } from './products/products.component';
 import { UsersComponent } from './users/users.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { LowerProductComponent } from './products/lower-product/lower-product.component';
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
   { path: "products", component: ProductsComponent },
+  { path: "products/:id", component: LowerProductComponent },
   { path: "users", component: UsersComponent },
   { path: "**", component: NotfoundComponent }
 ]

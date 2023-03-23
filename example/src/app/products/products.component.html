@@ -1,6 +1,7 @@
 <ul class="list-group">
     <li *ngFor="let product of products" class="list-group-item">
         {{product.name}}
+        <a [routerLink]="['/products',product.id]">Detail</a>
     </li>
 </ul>
 <button (click)="loadProducts()" class="btn btn-primary btn-sm my-2">Refresh Page</button>

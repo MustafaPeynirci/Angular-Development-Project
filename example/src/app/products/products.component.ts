@@ -1,3 +1,4 @@
+import { products } from './../products';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,11 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  products = [
-    { name: "product 1" },
-    { name: "product 2" },
-    { name: "product 3" }
-  ]
+  products = products
 
   constructor(
     private router: Router,
