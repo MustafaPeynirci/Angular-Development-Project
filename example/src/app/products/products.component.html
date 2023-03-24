@@ -4,5 +4,11 @@
         <a [routerLink]="['/products',product.id]">Detail</a>
     </li>
 </ul>
-<button (click)="loadProducts()" class="btn btn-primary btn-sm my-2">Refresh Page</button>
-<a routerLink="products" class="mx-2">Products</a>
+<div class="mt-2">
+    <button class="btn btn-primary btn-sm" routerLink="/products" [queryParams]="{page:1, order: 'bestselling'}">Best
+        Sellers</button>
+    <button class="btn btn-primary btn-sm mx-2" routerLink="/products" [queryParams]="{page:2, order: 'newest'}">Latest
+        Products</button>
+    <button (click)="loadProducts()" class="btn btn-primary btn-sm my-2">Refresh Page</button>
+    <a routerLink="products" class="mx-2">Products</a>
+</div>

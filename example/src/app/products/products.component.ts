@@ -20,7 +20,11 @@ export class ProductsComponent implements OnInit {
   }
 
   loadProducts() {
-    this.router.navigate(["products"], { relativeTo: this.activatedRoute })
+    this.router.navigate(["/products"], {
+      queryParams: {
+        page: 1
+      }
+    })
   }
 
 }
