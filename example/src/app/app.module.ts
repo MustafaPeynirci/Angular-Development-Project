@@ -19,23 +19,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { LowerProductComponent } from './products/lower-product/lower-product.component';
 import { UserComponent } from './users/user/user.component';
 import { EditProductComponent } from './products/edit-product/edit-product.component';
-
-const appRoutes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "home", component: HomeComponent },
-  {
-    path: "products", component: ProductsComponent, children: [
-      { path: ":id", component: LowerProductComponent },
-      { path: ":id/edit", component: EditProductComponent }
-    ]
-  },
-  {
-    path: "users", component: UsersComponent, children: [
-      { path: ":name", component: UserComponent }
-    ]
-  },
-  { path: "**", component: NotfoundComponent }
-]
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -59,7 +43,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [GeneralComponent]
