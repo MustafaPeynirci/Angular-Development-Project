@@ -1,3 +1,5 @@
+import { products } from './../../products';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditProductComponent implements OnInit {
 
-  constructor() { }
+  selectedProduct
+
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(x => {
+      let id = + x.get("id")
+      this.selectedProduct = products.find(i => i.id === id)
+    })
   }
 
 }

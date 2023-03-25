@@ -23,9 +23,17 @@ import { EditProductComponent } from './products/edit-product/edit-product.compo
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
-  { path: "products", component: ProductsComponent },
-  { path: "products/:id", component: LowerProductComponent },
-  { path: "users", component: UsersComponent },
+  {
+    path: "products", component: ProductsComponent, children: [
+      { path: ":id", component: LowerProductComponent },
+      { path: ":id/edit", component: EditProductComponent }
+    ]
+  },
+  {
+    path: "users", component: UsersComponent, children: [
+      { path: ":name", component: UserComponent }
+    ]
+  },
   { path: "**", component: NotfoundComponent }
 ]
 
