@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth-guard.service';
 import { AdminModule } from './admin/admin.module';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -47,7 +48,7 @@ import { AppRoutingModule } from './app-routing.module';
     AdminModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [GeneralComponent]
 })
 export class AppModule { }

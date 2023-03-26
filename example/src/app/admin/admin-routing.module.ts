@@ -3,10 +3,11 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
 import { AdminComponent } from './admin/admin.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../auth-guard.service';
 
 const routes: Routes = [
   {
-    path: "admin", component: AdminComponent, children: [
+    path: "admin", canActivate: [AuthGuard], component: AdminComponent, children: [
       {
         path: "", children: [
           { path: "products", component: AdminProductsComponent },
