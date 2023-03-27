@@ -1,6 +1,7 @@
 export class AuthService {
 
     loggedIn = false
+    redicetUrl: string
 
     isAuthenticated() {
         let timeout = 700
@@ -10,7 +11,6 @@ export class AuthService {
                 resolve(this.loggedIn)
             }, timeout);
         })
-
         return promise
     }
     login() {

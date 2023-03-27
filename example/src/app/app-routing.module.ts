@@ -8,10 +8,12 @@ import { LowerProductComponent } from "./products/lower-product/lower-product.co
 import { ProductsComponent } from "./products/products.component";
 import { UserComponent } from "./users/user/user.component";
 import { UsersComponent } from "./users/users.component";
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
     { path: "", component: HomeComponent },
     { path: "home", component: HomeComponent },
+    { path: "login", component: LoginComponent },
     {
         path: "products", component: ProductsComponent, children: [
             { path: ":id", component: LowerProductComponent },

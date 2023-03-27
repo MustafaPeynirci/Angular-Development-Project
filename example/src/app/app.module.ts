@@ -22,6 +22,7 @@ import { LowerProductComponent } from './products/lower-product/lower-product.co
 import { UserComponent } from './users/user/user.component';
 import { EditProductComponent } from './products/edit-product/edit-product.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AppRoutingModule } from './app-routing.module';
     CategoriesComponent,
     NotfoundComponent,
     UserComponent,
-    EditProductComponent
+    EditProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
